@@ -19,8 +19,10 @@ SuperMvp 目前规划为：
 5.通用控件的封装
 
 如果有了这些，app该怎么做？ 直接填数据和业务！对业务层继续封装。
+#### MVP架构
+里面有不少值得分享的地方，比如泛型，注解等解决了view与presenter之间直接的调用。当然，如果仔细阅读代码，你会发现，我怎么没有初始化presenter 就直接用起来了。view里的getActivity()从哪里来的？activity里没有传给他呀。阅读代码，你就会知道
 
-#### Activity的使用
+##### Activity的使用
 
     @PresenterTyper(MainPresenter.class)
     public class MainActivity extends BaseActivity<MainPresenter> {
