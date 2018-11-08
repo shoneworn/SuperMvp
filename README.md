@@ -20,8 +20,7 @@ SuperMvp 目前规划为：
 
 如果有了这些，app该怎么做？ 直接填数据和业务！对业务层继续封装。
 #### MVP架构
-里面有不少值得分享的地方，比如泛型，注解等解决了view与presenter之间直接的调用。当然，如果仔细阅读代码，你会发现，我怎么没有初始化presenter 就直接用起来了。view里的getActivity()从哪里来的？activity里没有传给他呀。阅读代码，你就会知道
-
+里面有不少值得分享的地方，比如泛型，注解等解决了view与presenter之间直接的调用。当然，如果仔细阅读代码，你会发现，我怎么没有初始化presenter 就直接用起来了。view里的getActivity()从哪里来的？activity里没有传给他呀。MVP只能用在Activity里吗？ 阅读代码，你会找到答案。
 ##### Activity的使用
 
     @PresenterTyper(MainPresenter.class)
@@ -43,7 +42,7 @@ SuperMvp 目前规划为：
 
 使用的时候，一定要在Activity上面加上注解@PresenterTyper 值为当前Activity对应的Presenter的class 。继承的BaseActivity对应的泛型也是必填项，值为对应的Presenter .
 
-#### Prenseter使用
+##### Prenseter使用
     public class MainPresenter extends PresenterWrapper<MainActivity> {
 
         @Override
@@ -60,8 +59,7 @@ SuperMvp 目前规划为：
 Prenster里一定要注意的是，需要集成对应的PresenterWrapper， Activity和Fragment对应的是_activity_fragment 目录下的PresenterWrapper ，自定义ViewGroup则对应的是_View目录下的PresenterWrapper . 切记，不要用混。
 另外，一定要注意的是： PresenterWrapper<> 这里的泛型值，必须为何Presenter对应的Activity 。这里为MainActivity  ，一定要加上。千万不能用错。
 
-
-#### View中使用Mvp
+##### View中使用Mvp
 和在activity中一样。也是配置两个地方。 view 和presenter
 先看在View中
 
