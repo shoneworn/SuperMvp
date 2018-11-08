@@ -79,7 +79,7 @@ Prenster里一定要注意的是，需要集成对应的PresenterWrapper， Acti
     }
 
     public void setText(){
-        tv.setText("我时陈祥祥");
+        tv.setText("我是陈祥祥");
     }
 
     @Override
