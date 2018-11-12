@@ -15,7 +15,7 @@ import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 import com.shoneworn.libcore.infrastruction.base.PresenterTyper;
-import com.shoneworn.supermvp.business.home.MainActivity;
+import com.shoneworn.supermvp.business.home.ui.MainActivity;
 import com.shoneworn.supermvp.R;
 import com.shoneworn.supermvp.business.launcher.presenter.LauncherPresenter;
 import com.shoneworn.supermvp.common.CommonActivity;

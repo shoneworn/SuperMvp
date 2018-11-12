@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.shoneworn.myframework", appContext.getPackageName());
+        assertEquals("com.shoneworn.supermvp", appContext.getPackageName());
     }
 }
