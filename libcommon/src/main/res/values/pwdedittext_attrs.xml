@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PwdEditText">
+        <attr name="petSeparator" format="string" />
+        <attr name="petDisableClear" format="boolean" />
+        <attr name="petClearDrawable" format="reference" />
+        <attr name="petShowPwdDrawable" format="reference" />
+        <attr name="petHidePwdDrawable" format="reference" />
+        <attr name="petDisableEmoji" format="boolean" />
+        <attr name="petTogglePwdDrawableEnable" format="boolean" />
+        <attr name="petPattern" format="string" />
+    </declare-styleable>
+</resources>

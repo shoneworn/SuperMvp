@@ -9,15 +9,15 @@ import java.lang.reflect.InvocationTargetException;
 
 public class AnnotationUtil {
 
-    public static BasePresenter getAnnotationValue(Class clazz) {
+    public static BeamPresenter getAnnotationValue(Class clazz) {
         Class clz = clazz;
         boolean clzHasAnno = clz.isAnnotationPresent(PresenterTyper.class);
         if (clzHasAnno) {
             PresenterTyper annotation = (PresenterTyper) clz.getAnnotation(PresenterTyper.class);
-            Class<BasePresenter> clasz = annotation.value();
+            Class<BeamPresenter> clasz = annotation.value();
             if (clasz != null) {
                 try {
-                    Constructor<BasePresenter> constructor = clasz.getConstructor();
+                    Constructor<BeamPresenter> constructor = clasz.getConstructor();
                     return constructor.newInstance();
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();

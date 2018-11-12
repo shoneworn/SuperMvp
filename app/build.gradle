@@ -1,33 +1,70 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
-        applicationId "com.shoneworn.myframework"
+        applicationId 'com.shoneworn.supermvp'
         minSdkVersion 14
-        targetSdkVersion 26
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            // 移除无用的resource文件，前提minifyEnabled必须打开
+            shrinkResources true
+            // ZipAlign优化
+            zipAlignEnabled true
+            // 设置混淆
+            minifyEnabled true
+            //加载默认混淆配置涵
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            //ZipAlign优化
+            zipAlignEnabled false
+            //设置混淆
             minifyEnabled false
+            //加载默认混淆配置涵
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
     configurations.all {
         resolutionStrategy.force 'com.android.support:support-annotations:26.1.0'
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    api "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    api "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
+    api "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
+    api "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintlayoutVersion"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile project(':libcore')
+    // 状态栏沉浸：https://github.com/gyf-dev/ImmersionBar
+    api 'com.gyf.barlibrary:barlibrary:2.3.0'
+    // 侧滑功能：https://github.com/bingoogolapple/BGASwipeBackLayout-Android
+    api 'cn.bingoogolapple:bga-swipebacklayout:1.1.9@aar'
+    // 权限请求框架：https://github.com/getActivity/XXPermissions
+    api 'com.hjq:xxpermissions:5.2'
+    // ButterKnife注解库：https://github.com/JakeWharton/butterknife
+    api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
+}
 
+repositories {
+    flatDir {
+        dirs 'libs' //就是你放aar的目录地址
+    }
 }

@@ -6,13 +6,13 @@ import android.content.ContextWrapper;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.shoneworn.libcore.infrastruction.base.BasePresenter;
+import com.shoneworn.libcore.infrastruction.base.BeamPresenter;
 
 /**
  * Created by chenxiangxiang on 2018/11/5.
  */
 
-public class PresenterWrapper<ViewType extends View> extends BasePresenter<ViewType> {
+public class PresenterWrapper<ViewType extends View> extends BeamPresenter<ViewType> {
 
     protected Context ctx;
     private Activity activity = null;
