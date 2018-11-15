@@ -1,4 +1,4 @@
-package com.shoneworn.supermvp.common;
+package com.shoneworn.supermvp.common.base._activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -52,6 +52,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile project(':libcore')
+    compile project(':libcommon')
+
     // 状态栏沉浸：https://github.com/gyf-dev/ImmersionBar
     api 'com.gyf.barlibrary:barlibrary:2.3.0'
     // 侧滑功能：https://github.com/bingoogolapple/BGASwipeBackLayout-Android

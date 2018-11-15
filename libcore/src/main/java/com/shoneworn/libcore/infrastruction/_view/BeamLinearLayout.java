@@ -51,11 +51,16 @@ public abstract class BeamLinearLayout<PresenterType extends PresenterWrapper> e
         }
         if (presenter != null) {
             presenter.onCreateView(this);
+            this.ctx = context;
+            initAttrs(context, attrs, defStyleAttr);
+            onConstructorCalled();
+            presenter.onConstructCalled(context, attrs, defStyleAttr, defStyleRes);
+
         }
-        this.ctx = context;
-        presenter.onConstructCalled(context, attrs, defStyleAttr, defStyleRes);
-        onConstructorCalled();
+
     }
+
+
 
 
     @Override
@@ -125,10 +130,14 @@ public abstract class BeamLinearLayout<PresenterType extends PresenterWrapper> e
 
     protected void onConstructorCalled() {
         this.layoutInflater = LayoutInflater.from(ctx);
+        layoutInflater.inflate(getLayoutId(),this);
         init();
     }
 
+    public abstract int getLayoutId() ;
+
     protected void init() {
+
         initView();
         initData();
         setViewListener();
@@ -139,4 +148,6 @@ public abstract class BeamLinearLayout<PresenterType extends PresenterWrapper> e
     protected abstract void initData();
 
     protected abstract void setViewListener();
+
+    protected abstract void initAttrs(Context context, AttributeSet attrs, int defStyleAttr);
 }

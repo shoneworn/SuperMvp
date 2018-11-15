@@ -45,9 +45,6 @@ public abstract class BeamFragment<PresenterType extends BeamPresenter> extends 
         Context contextThemeWrapper = new ContextThemeWrapper(getActivity(), getThemeResId());
         baseLayoutInflater = inflater.cloneInContext(contextThemeWrapper);
         contentView = onCreateView(container, savedInstanceState);
-        initViews(contentView);
-        initData(savedInstanceState);
-        setViewListener();
         if (presenter != null) {
             presenter.onCreateView(this);
         }
@@ -85,6 +82,9 @@ public abstract class BeamFragment<PresenterType extends BeamPresenter> extends 
         if (presenter != null) {
             presenter.onDestory();
         }
+        ctx = null;
+        contentView = null;
+        baseLayoutInflater = null;
     }
 
     @Override
@@ -124,14 +124,6 @@ public abstract class BeamFragment<PresenterType extends BeamPresenter> extends 
      */
     protected abstract View onCreateView(ViewGroup container, Bundle savedInstanceState);
 
-    protected abstract void initViews(View view);
-
-    /**
-     * 初始化数据
-     */
-    protected abstract void initData(Bundle savedInstanceState);
-
-    protected abstract void setViewListener();
 
     private void _setTheme() {
         int themeResId = getThemeResId();

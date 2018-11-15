@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TitleView">
+        <attr name="titleLeftDrawable" format="reference" />
+        <attr name="titleRightDrawable" format="reference" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="titleText" format="string" />
+        <attr name="titleLeftText" format="string" />
+        <attr name="titleRightText" format="string" />
+        <attr name="titleLeftTextColor" format="color" />
+        <attr name="titleRightTextColor" format="color" />
+        <attr name="petPattern" format="string" />
+    </declare-styleable>
+</resources>

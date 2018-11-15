@@ -1,4 +1,4 @@
-package com.shoneworn.supermvp.common;
+package com.shoneworn.supermvp.common.base._activity;
 
 import android.content.pm.ActivityInfo;
 import android.os.Build;

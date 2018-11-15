@@ -15,10 +15,10 @@ import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 import com.shoneworn.libcore.infrastruction.base.PresenterTyper;
-import com.shoneworn.supermvp.business.home.ui.MainActivity;
+import com.shoneworn.supermvp.business.main.ui.MainActivity;
 import com.shoneworn.supermvp.R;
 import com.shoneworn.supermvp.business.launcher.presenter.LauncherPresenter;
-import com.shoneworn.supermvp.common.CommonActivity;
+import com.shoneworn.supermvp.common.base._activity.CommonActivity;
 
 import java.util.List;
 
@@ -103,7 +103,7 @@ public class LauncherActivity extends CommonActivity<LauncherPresenter>
 
     @Override
     public void hasPermission(List<String> granted, boolean isAll) {
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
@@ -118,7 +118,7 @@ public class LauncherActivity extends CommonActivity<LauncherPresenter>
         super.onRestart();
         if (XXPermissions.isHasPermission(LauncherActivity.this, Permission.Group.STORAGE)) {
             hasPermission(null, true);
-        }else {
+        } else {
             requestFilePermission();
         }
     }
@@ -140,7 +140,7 @@ public class LauncherActivity extends CommonActivity<LauncherPresenter>
         if (quick) {
 
             XXPermissions.gotoPermissionSettings(LauncherActivity.this, true);
-        }else {
+        } else {
             getWindow().getDecorView().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -155,7 +155,8 @@ public class LauncherActivity extends CommonActivity<LauncherPresenter>
      */
 
     @Override
-    public void onAnimationStart(Animation animation) {}
+    public void onAnimationStart(Animation animation) {
+    }
 
     @Override
     public void onAnimationEnd(Animation animation) {
@@ -163,7 +164,8 @@ public class LauncherActivity extends CommonActivity<LauncherPresenter>
     }
 
     @Override
-    public void onAnimationRepeat(Animation animation) {}
+    public void onAnimationRepeat(Animation animation) {
+    }
 
 
 }
