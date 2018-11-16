@@ -17,8 +17,8 @@ SuperMvp 目前规划为：
 
 SuperMvp 支持哪些功能？  
 1.沉浸式状态栏  (https://github.com/gyf-dev/ImmersionBar)
-2.懒加载fragment  
-3.软键盘顶起view的处理方法。(两种方式，最终实现基本一直。一种是布局时采用固定位置。第二种就是，采用相对布局，等界面绘制完成后，根据所在位置，设置成固定位置)  
+2.懒加载fragment
+3.软键盘顶起view的处理方法。(两种方式，最终实现基本一直。一种是布局时采用固定位置。第二种就是，采用相对布局，等界面绘制完成后，根据所在位置，设置成固定位置)
 4.动态权限申请  (https://github.com/getActivity/XXPermissions)
 5.侧滑删除activity (https://github.com/bingoogolapple/BGASwipeBackLayout-Android)
 6.无限轮播viewpager (https://github.com/H07000223/FlycoBanner_Master)
