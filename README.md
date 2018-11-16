@@ -16,11 +16,16 @@ SuperMvp 目前规划为：
 如果有了这些，app该怎么做？ 直接填数据和业务！对业务层继续封装。
 
 SuperMvp 支持哪些功能？  
-1.沉浸式状态栏  
+1.沉浸式状态栏  (https://github.com/gyf-dev/ImmersionBar)
 2.懒加载fragment  
 3.软键盘顶起view的处理方法。(两种方式，最终实现基本一直。一种是布局时采用固定位置。第二种就是，采用相对布局，等界面绘制完成后，根据所在位置，设置成固定位置)  
-4.动态权限申请  
-5.
+4.动态权限申请  (https://github.com/getActivity/XXPermissions)
+5.侧滑删除activity (https://github.com/bingoogolapple/BGASwipeBackLayout-Android)
+6.无限轮播viewpager (https://github.com/H07000223/FlycoBanner_Master)
+7.下拉刷新，上拉加载  (https://github.com/scwang90/SmartRefreshLayout)
+8.behavior的使用
+9.水平滑动的顶部导航栏 (https://github.com/ogaclejapan/SmartTabLayout)
+
 。。。。。。。持续扩展中。。。。。。。。。。
 #### MVP架构
 里面有不少值得分享的地方，比如泛型，注解等解决了view与presenter之间直接的调用。当然，如果仔细阅读代码，你会发现，我怎么没有初始化presenter 就直接用起来了。view里的getActivity()从哪里来的？activity里没有传给他呀。MVP只能用在Activity里吗？ 阅读代码，你会找到答案。
