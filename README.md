@@ -3,8 +3,7 @@
 做开发也有些年了。项目也做过不少，都是不停地码代码，有自己从0开始的，有从其他人手里接锅的，经验多了，就发现很多东西值得备份起来，以备不时之需。但是每个项目都有自己的收获，下一个项目做完后，就想推翻上一个使用的策略和方法，随着经验丰富起来，及时机成熟，开始想要封装一套框架，用来满足以后项目的开发需求。在框架写了一部分后，恰好读到一篇好文章，作者也和我一样，不过，他已经搭好自己的框架，而我，还在启动阶段。这更坚定了我造轮子的决心。文章地址：https://www.jianshu.com/p/77dd326f21dc  他的开源项目：https://github.com/getActivity/AndroidProject
 
 #### 项目介绍
-作为架构，目前只处理了V和P层，并没有处理M层。架构的目的就是方便V和P之间的通讯。
-SuperMvp带来了什么好处？ 意义是很明显的。当你需要使用Presenter里的方法时，一个getPresenter()就可以直接调用了,当你需要在Presenter里使用Activity的方法时，getview().method 就可直接使用。不用指定特定接口让activity去回调。没有繁琐步骤，想用就用。
+作为架构，目前只处理了V和P层，并没有处理M层。架构的目的就是方便V和P之间的通讯，将M与V隔离。区别于其他MVP。相信很多人在初学MVP时，都是采用回调方式。即，activity实现一个view接口，里面全是回调方法。在acitivity里实例化presenter，将view传递到presenter里。然后处理业务，并通过view的实例回调方法。这么做，太繁琐。SuperMvp带来了什么好处？ 意义是很明显的。当你需要使用Presenter里的方法时，一个getPresenter()就可以直接调用了,当你需要在Presenter里使用Activity的方法时，getview().method 就可直接使用。不用指定特定接口让activity去回调。没有繁琐步骤，想用就用。
 
 SuperMvp 目前规划为：
 
