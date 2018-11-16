@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/AppBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.shoneworn.supermvp.common.widget.toastcompat.titleview.TitleView
+    <com.shoneworn.supermvp.common.widget.titleview.TitleView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleLeftDrawable="@mipmap/ic_back"
+        app:titleTextColor="@color/black60"
+        android:background="@color/white"
         app:titleText="发现" />
 
 

@@ -1,4 +1,4 @@
-package com.shoneworn.supermvp.common.base;
+package com.shoneworn.supermvp;
 
 import android.app.Application;
 

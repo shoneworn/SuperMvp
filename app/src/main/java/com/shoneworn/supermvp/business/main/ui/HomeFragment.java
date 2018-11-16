@@ -23,10 +23,9 @@ public class HomeFragment extends UILazyFragment<HomePresenter> {
     }
 
     @Override
-    protected View onCreateView(ViewGroup container, Bundle savedInstanceState) {
-        return baseLayoutInflater.inflate(R.layout.fragment_home,null);
+    protected int getLayoutId() {
+        return R.layout.fragment_home;
     }
-
 
     @Override
     protected void initData() {

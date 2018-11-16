@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app ="http://schemas.android.com/apk/res-auto"
+    style="@style/AppBackground"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:text="Fragment4"
-        android:gravity="center"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+   <com.shoneworn.supermvp.common.widget.titleview.TitleView
+       android:id="@+id/title"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="@color/green"
+       app:titleText="个人中心"
+       app:titleTextColor="@color/white"
        />
 
-</RelativeLayout>
+   <com.shoneworn.libcommon.CircleImageView
+       android:id="@+id/iv_head"
+       android:layout_width="80dp"
+       android:layout_height="80dp"
+       android:layout_gravity="center_horizontal"
+       android:layout_marginTop="@dimen/space_40"
+       app:civ_border_width="@dimen/space_2"
+       app:civ_border_color="@color/white"
+       />
+
+</LinearLayout>

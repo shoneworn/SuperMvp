@@ -6,17 +6,13 @@ import android.support.v4.app.FragmentManager;
 
 import com.shoneworn.supermvp.business.main.ui.DiscoveryFragment;
 import com.shoneworn.supermvp.business.main.ui.HomeFragment;
+import com.shoneworn.supermvp.business.main.ui.MessageFragment;
+import com.shoneworn.supermvp.business.main.ui.MineFragment;
 import com.shoneworn.supermvp.common.base.adapter.BaseFragmentPagerAdapter;
 import com.shoneworn.supermvp.common.base.fragment.UILazyFragment;
 
 import java.util.List;
 
-/**
- *    author : HJQ
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2018/10/18
- *    desc   : 主页界面 ViewPager + Fragment 适配器
- */
 public final class HomeViewPagerAdapter extends BaseFragmentPagerAdapter<UILazyFragment> {
 
     public HomeViewPagerAdapter(FragmentActivity activity) {
@@ -27,7 +23,7 @@ public final class HomeViewPagerAdapter extends BaseFragmentPagerAdapter<UILazyF
     protected void init(FragmentManager fm, List<UILazyFragment> list) {
         list.add(HomeFragment.newInstance());
         list.add(DiscoveryFragment.newInstance());
-        list.add(HomeFragment.newInstance());
-        list.add(DiscoveryFragment.newInstance());
+        list.add(MessageFragment.newInstance());
+        list.add(MineFragment.newInstance());
     }
 }

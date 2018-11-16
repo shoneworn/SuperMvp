@@ -1,4 +1,4 @@
-package com.shoneworn.supermvp.common.widget.toastcompat.titleview;
+package com.shoneworn.supermvp.common.widget.titleview;
 
 
 import com.shoneworn.libcore.infrastruction._view.PresenterWrapper;

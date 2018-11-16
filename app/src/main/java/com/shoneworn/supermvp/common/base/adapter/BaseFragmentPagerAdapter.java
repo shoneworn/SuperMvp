@@ -11,12 +11,7 @@ import com.shoneworn.supermvp.common.base.fragment.BaseLazyFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *    author : HJQ
- *    github : https://github.com/getActivity/AndroidProject
- *    time   : 2018/10/18
- *    desc   : FragmentPagerAdapter基类
- */
+
 public abstract class BaseFragmentPagerAdapter<T extends BaseLazyFragment> extends FragmentPagerAdapter {
 
     private List<T> mFragments = new ArrayList<>(); // Fragment集合

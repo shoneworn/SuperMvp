@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.shoneworn.libcore.infrastruction._activity_fragment.PresenterWrapper;
+import com.shoneworn.supermvp.common.base._activity.BaseActivity;
+import com.shoneworn.supermvp.uitls.LogUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -57,7 +59,7 @@ public abstract class UILazyFragment<PresenterType extends PresenterWrapper> ext
      */
     private ImmersionBar statusBarConfig() {
         //在BaseActivity里初始化
-        mImmersionBar = ImmersionBar.with(this)
+        mImmersionBar = ImmersionBar.with(getActivity())
                 .statusBarDarkFont(statusBarDarkFont())    //默认状态栏字体颜色为黑色
                 .keyboardEnable(true);  //解决软键盘与底部输入框冲突问题，默认为false，还有一个重载方法，可以指定软键盘mode
         return mImmersionBar;
@@ -85,6 +87,23 @@ public abstract class UILazyFragment<PresenterType extends PresenterWrapper> ext
         if (isVisibleToUser && isStatusBarEnabled() && isLazyLoad()) {
             // 重新初始化状态栏
             statusBarConfig().init();
+        }
+        if(isVisibleToUser){
+            setStatusBarDarkFont(statusBarDarkFont());
+        }
+    }
+
+
+    /**
+     * 私有方法，只针对本框架，你要是不嫌麻烦，可以一个个fragment去设置。
+     * 声明：不是继承自BaseActivity的activity ，都将不会生效
+     */
+    private void setStatusBarDarkFont(boolean darkFont) {
+        try {
+            BaseActivity activity = (BaseActivity) getActivity();
+            activity.getStatusBarConfig().statusBarDarkFont(darkFont).init();
+        } catch (Exception e) {
+            LogUtils.d("使用了野路子activity");
         }
     }
 }
