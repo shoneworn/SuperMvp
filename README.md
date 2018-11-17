@@ -5,8 +5,7 @@
 #### 项目介绍
 作为架构，目前只处理了V和P层，并没有处理M层。架构的目的就是方便V和P之间的通讯，将M与V隔离。区别于其他MVP。相信很多人在初学MVP时，都是采用回调方式。即，activity实现一个view接口，里面全是回调方法。在acitivity里实例化presenter，将view传递到presenter里。然后处理业务，并通过view的实例回调方法。这么做，太繁琐。SuperMvp带来了什么好处？ 意义是很明显的。当你需要使用Presenter里的方法时，一个getPresenter()就可以直接调用了,当你需要在Presenter里使用Activity的方法时，getview().method 就可直接使用。不用指定特定接口让activity去回调。没有繁琐步骤，想用就用。
 
-SuperMvp 目前规划为：
-
+##### SuperMvp 目前规划为：  
 1.MVP架构  
 2.网络层(也叫接口层，包含数据请求及回调，数据处理等各种api)  
 3.数据层(包含数据持久化等各项操作)  
@@ -14,7 +13,7 @@ SuperMvp 目前规划为：
 5.通用控件的封装  
 如果有了这些，app该怎么做？ 直接填数据和业务！对业务层继续封装。
 
-SuperMvp 支持哪些功能？  
+##### SuperMvp 支持哪些功能？  
 1.沉浸式状态栏  (https://github.com/gyf-dev/ImmersionBar)  
 2.懒加载fragment  
 3.软键盘顶起view的处理方法。(两种方式，最终实现基本一直。一种是布局时采用固定位置。第二种就是，采用相对布局，等界面绘制完成后，根据所在位置，设置成固定位置)  
@@ -26,6 +25,12 @@ SuperMvp 支持哪些功能？
 9.水平滑动的顶部导航栏 (https://github.com/ogaclejapan/SmartTabLayout)  
 
 。。。。。。。持续扩展中。。。。。。。。。。
+
+##### SuperMvp module规划  
+1.libcore MVP的实现核心module，主项目必须依赖。规划为，其他人可以直接拷贝该lib到自己的项目，单独使用。  
+2.libcommon 与mvp没半毛钱关系，纯属本项目中需要用到，但又想独立使用的一个自定义view。规划为，用户可以直接按需拷贝里面的自定义view， 直接使用。  
+3.主项目 主项目里面分为business 和common  。business为本项目的业务部分。common部分为继承自libcore的mvp架构的按需扩展。这个部分，可以自定义，也可以直接使用。可以根据business里的业务需要来定义。比如lazyFragment , 你要是整个项目都没用上，可以自己写一个basefragment 继承自libcore的BeamFragment 。然后，根据需要，扩展一些方法。   
+
 #### MVP架构
 里面有不少值得分享的地方，比如泛型，注解等解决了view与presenter之间直接的调用。当然，如果仔细阅读代码，你会发现，我怎么没有初始化presenter 就直接用起来了。view里的getActivity()从哪里来的？activity里没有传给他呀。MVP只能用在Activity里吗？ 阅读代码，你会找到答案。
 ##### Activity的使用
