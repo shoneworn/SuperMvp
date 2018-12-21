@@ -2,7 +2,6 @@ package com.shoneworn.supermvp.business.main.ui;
 
 import com.shoneworn.libcore.infrastruction.base.PresenterTyper;
 import com.shoneworn.supermvp.R;
-import com.shoneworn.supermvp.business.main.presenter.HomePresenter;
 import com.shoneworn.supermvp.business.main.presenter.MessagePresenter;
 import com.shoneworn.supermvp.common.base.fragment.UILazyFragment;
 
@@ -15,13 +14,18 @@ import com.shoneworn.supermvp.common.base.fragment.UILazyFragment;
 public class MessageFragment extends UILazyFragment<MessagePresenter
         > {
 
-    public static MessageFragment newInstance(){
+    public static MessageFragment newInstance() {
         return new MessageFragment();
     }
 
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_message;
+    }
+
+    @Override
+    protected void initView() {
+
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.shoneworn.libcore.infrastruction.base.AnnotationUtil;
 import com.shoneworn.libcore.infrastruction.base.BaseView;
@@ -51,11 +52,16 @@ public abstract class BeamViewGroup<PresenterType extends PresenterWrapper> exte
         }
         if (presenter != null) {
             presenter.onCreateView(this);
+            this.ctx = context;
+            initAttrs(context, attrs, defStyleAttr);
+            onConstructorCalled();
+            presenter.onConstructCalled(context, attrs, defStyleAttr, defStyleRes);
+
         }
-        this.ctx = context;
-        presenter.onConstructCalled(context, attrs, defStyleAttr, defStyleRes);
-        onConstructorCalled();
+
     }
+
+
 
 
     @Override
@@ -125,8 +131,11 @@ public abstract class BeamViewGroup<PresenterType extends PresenterWrapper> exte
 
     protected void onConstructorCalled() {
         this.layoutInflater = LayoutInflater.from(ctx);
+        layoutInflater.inflate(getLayoutId(),this);
         init();
     }
+
+    public abstract int getLayoutId() ;
 
     protected void init() {
         initView();
@@ -139,4 +148,6 @@ public abstract class BeamViewGroup<PresenterType extends PresenterWrapper> exte
     protected abstract void initData();
 
     protected abstract void setViewListener();
+
+    protected abstract void initAttrs(Context context, AttributeSet attrs, int defStyleAttr);
 }

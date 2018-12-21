@@ -1,4 +1,4 @@
-package com.shoneworn.libcommon;
+package com.shoneworn.libcommon.widget;
 
 import android.annotation.SuppressLint;
 import android.content.ClipData;
@@ -29,6 +29,8 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+
+import com.shoneworn.libcommon.R;
 
 import java.lang.reflect.Field;
 

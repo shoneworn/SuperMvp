@@ -25,8 +25,6 @@ public abstract class UILazyFragment<PresenterType extends PresenterWrapper> ext
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
         //初始化沉浸式状态栏
         if (isVisibleToUser() && isStatusBarEnabled() && isLazyLoad()) {
             statusBarConfig().init();
@@ -38,6 +36,7 @@ public abstract class UILazyFragment<PresenterType extends PresenterWrapper> ext
         }
 
         mButterKnife = ButterKnife.bind(this, view);
+        super.onViewCreated(view, savedInstanceState);
     }
 
     /**
@@ -88,7 +87,7 @@ public abstract class UILazyFragment<PresenterType extends PresenterWrapper> ext
             // 重新初始化状态栏
             statusBarConfig().init();
         }
-        if(isVisibleToUser){
+        if (isVisibleToUser) {
             setStatusBarDarkFont(statusBarDarkFont());
         }
     }

@@ -14,7 +14,7 @@
        app:titleTextColor="@color/white"
        />
 
-   <com.shoneworn.libcommon.CircleImageView
+   <com.shoneworn.libcommon.widget.CircleImageView
        android:id="@+id/iv_head"
        android:layout_width="80dp"
        android:layout_height="80dp"

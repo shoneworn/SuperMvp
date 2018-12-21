@@ -1,15 +1,10 @@
 package com.shoneworn.supermvp.business.main.ui;
 
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.shoneworn.libcore.infrastruction.base.PresenterTyper;
 import com.shoneworn.supermvp.R;
-import com.shoneworn.supermvp.business.main.presenter.HomePresenter;
 import com.shoneworn.supermvp.business.main.presenter.MinePresenter;
-import com.shoneworn.supermvp.common.base._activity.BaseActivity;
 import com.shoneworn.supermvp.common.base.fragment.UILazyFragment;
 import com.shoneworn.supermvp.common.widget.Image.ImageLoader;
 
@@ -32,6 +27,11 @@ public class MineFragment extends UILazyFragment<MinePresenter> {
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_mine;
+    }
+
+    @Override
+    protected void initView() {
+
     }
 
     @Override

@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 
 
 import com.shoneworn.supermvp.business.main.ui.DiscoveryFragment;
-import com.shoneworn.supermvp.business.main.ui.HomeFragment;
+import com.shoneworn.supermvp.business.home.ui.HomeFragment;
 import com.shoneworn.supermvp.business.main.ui.MessageFragment;
 import com.shoneworn.supermvp.business.main.ui.MineFragment;
 import com.shoneworn.supermvp.common.base.adapter.BaseFragmentPagerAdapter;

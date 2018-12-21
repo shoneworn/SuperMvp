@@ -11,6 +11,7 @@ import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.shoneworn.libcore.infrastruction.base.AnnotationUtil;
@@ -51,11 +52,16 @@ public abstract class BeamRelativeLayout<PresenterType extends PresenterWrapper>
         }
         if (presenter != null) {
             presenter.onCreateView(this);
+            this.ctx = context;
+            initAttrs(context, attrs, defStyleAttr);
+            onConstructorCalled();
+            presenter.onConstructCalled(context, attrs, defStyleAttr, defStyleRes);
+
         }
-        this.ctx = context;
-        presenter.onConstructCalled(context, attrs, defStyleAttr, defStyleRes);
-        onConstructorCalled();
+
     }
+
+
 
 
     @Override
@@ -125,10 +131,14 @@ public abstract class BeamRelativeLayout<PresenterType extends PresenterWrapper>
 
     protected void onConstructorCalled() {
         this.layoutInflater = LayoutInflater.from(ctx);
+        layoutInflater.inflate(getLayoutId(),this);
         init();
     }
 
+    public abstract int getLayoutId() ;
+
     protected void init() {
+
         initView();
         initData();
         setViewListener();
@@ -139,4 +149,6 @@ public abstract class BeamRelativeLayout<PresenterType extends PresenterWrapper>
     protected abstract void initData();
 
     protected abstract void setViewListener();
+
+    protected abstract void initAttrs(Context context, AttributeSet attrs, int defStyleAttr);
 }

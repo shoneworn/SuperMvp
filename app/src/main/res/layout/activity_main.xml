@@ -10,11 +10,11 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="50dp">
 
-        <com.shoneworn.libcommon.NoScrollViewPager
+        <com.shoneworn.libcommon.widget.NoScrollViewPager
             android:id="@+id/vp_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        </com.shoneworn.libcommon.NoScrollViewPager>
+        </com.shoneworn.libcommon.widget.NoScrollViewPager>
 
     </FrameLayout>
 

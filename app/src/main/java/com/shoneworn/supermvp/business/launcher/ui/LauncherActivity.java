@@ -138,7 +138,6 @@ public class LauncherActivity extends CommonActivity<LauncherPresenter>
     @Override
     public void noPermission(List<String> denied, boolean quick) {
         if (quick) {
-
             XXPermissions.gotoPermissionSettings(LauncherActivity.this, true);
         } else {
             getWindow().getDecorView().postDelayed(new Runnable() {

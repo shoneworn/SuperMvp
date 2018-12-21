@@ -38,8 +38,12 @@ public class DiscoveryFragment extends UILazyFragment<DiscoveryPresenter> {
     }
 
     @Override
-    protected void initData() {
+    protected void initView() {
 
+    }
+
+    @Override
+    protected void initData() {
 
     }
 

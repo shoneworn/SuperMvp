@@ -1,4 +1,4 @@
-package com.shoneworn.libcommon;
+package com.shoneworn.libcommon.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,6 +16,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import com.shoneworn.libcommon.R;
 
 
 public class CircleImageView extends ImageView {

@@ -52,6 +52,7 @@ public abstract class BaseLazyFragment<T extends PresenterWrapper> extends BeamF
     }
 
     protected void init() {
+        initView();
         initData();
         setViewListener();
     }
@@ -74,7 +75,7 @@ public abstract class BaseLazyFragment<T extends PresenterWrapper> extends BeamF
             throw new RuntimeException(e);
         }
     }
-
+    protected abstract void initView();
     /**
      * 初始化数据
      */
