@@ -1,4 +1,82 @@
 apply plugin: 'com.android.application'
+apply plugin: 'AndResGuard'
+
+andResGuard {
+    mappingFile = null
+    use7zip = true
+    useSign = true
+    // it will keep the origin path of your resources when it's true
+    keepRoot = false
+    whiteList = [
+            // your icon
+            "R.drawable.icon",
+            // for fabric
+            "R.string.com.crashlytics.*",
+            // for umeng update
+            "R.string.umeng*",
+            "R.string.UM*",
+            "R.string.tb_*",
+            "R.string.rc_*",
+            "R.layout.umeng*",
+            "R.layout.tb_*",
+            "R.layout.rc_*",
+            "R.drawable.umeng*",
+            "R.drawable.tb_*",
+            "R.drawable.rc_*",
+            "R.drawable.u1*",
+            "R.drawable.u2*",
+            "R.anim.umeng*",
+            "R.color.umeng*",
+            "R.color.tb_*",
+            "R.color.rc_*",
+            "R.style.*UM*",
+            "R.style.umeng*",
+            "R.style.rc_*",
+            "R.id.umeng*",
+            "R.id.rc_*",
+            // umeng share for sina
+            "R.drawable.sina*",
+            // umeng share for facebook
+            "R.layout.*facebook*",
+            "R.id.*facebook*",
+            // umeng share for messager
+            "R.layout.*messager*",
+            "R.id.*messager*",
+            // umeng share commond
+            "R.id.progress_bar_parent",
+            "R.id.webView",
+            "R.layout.kepler_simple_dialog_lay",
+            "R.layout.more_select_item",
+            "R.layout.web_bottom_layout",
+            // for google-services.json
+            "R.string.google_app_id",
+            "R.string.gcm_defaultSenderId",
+            "R.string.default_web_client_id",
+            "R.string.ga_trackingId",
+            "R.string.firebase_database_url",
+            "R.string.google_api_key",
+            "R.string.google_crash_reporting_api_key",
+            "R.dimen.rc_*",
+            // for getui
+            "R.drawable.push",
+            "R.drawable.push_small",
+            "R.layout.getui_notification",
+            "R.id.getui_*",
+            //阿里百川sdk安全图片
+            "R.drawable.yw_1222"
+    ]
+    compressFilePattern = [
+            "*.png",
+            "*.jpg",
+            "*.jpeg",
+            "*.gif",
+            "resources.arsc"
+    ]
+    sevenzip {
+        artifact = 'com.tencent.mm:SevenZip:1.1.10'
+    }
+}
+
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -42,28 +120,26 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    api "com.android.support:design:$rootProject.ext.supportLibraryVersion"
-    api "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
-    api "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
-    api "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintlayoutVersion"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:support-v4:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$rootProject.ext.supportLibraryVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintlayoutVersion"
+
     compile project(':libcore')
     compile project(':libcommon')
     // glide 图片加载
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'jp.wasabeef:glide-transformations:2.0.1'
     // 状态栏沉浸：https://github.com/gyf-dev/ImmersionBar
-    api 'com.gyf.barlibrary:barlibrary:2.3.0'
+    compile 'com.gyf.barlibrary:barlibrary:2.3.0'
     // 侧滑功能：https://github.com/bingoogolapple/BGASwipeBackLayout-Android
-    api 'cn.bingoogolapple:bga-swipebacklayout:1.1.9@aar'
+    compile 'cn.bingoogolapple:bga-swipebacklayout:1.1.9@aar'
     // 权限请求框架：https://github.com/getActivity/XXPermissions
-    api 'com.hjq:xxpermissions:5.2'
+    compile 'com.hjq:xxpermissions:5.2'
     // ButterKnife注解库：https://github.com/JakeWharton/butterknife
-    api "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 }
 
