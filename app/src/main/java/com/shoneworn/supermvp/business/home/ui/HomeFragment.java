@@ -42,7 +42,7 @@ public class HomeFragment extends UILazyFragment<HomePresenter> {
 
     @Override
     protected void initView() {
-
+        getPresenter().getPrettyGirlList();
     }
 
     @Override

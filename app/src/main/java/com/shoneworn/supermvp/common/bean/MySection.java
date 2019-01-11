@@ -1,4 +1,4 @@
-package com.shoneworn.supermvp.common.Bean;
+package com.shoneworn.supermvp.common.bean;
 
 import com.shoneworn.libcommon.base_recyclerview_adapter_helper.entity.SectionEntity;
 

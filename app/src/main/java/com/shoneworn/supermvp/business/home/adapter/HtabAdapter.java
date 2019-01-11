@@ -3,7 +3,7 @@ package com.shoneworn.supermvp.business.home.adapter;
 import com.shoneworn.libcommon.base_recyclerview_adapter_helper.BaseSectionQuickAdapter;
 import com.shoneworn.libcommon.base_recyclerview_adapter_helper.BaseViewHolder;
 import com.shoneworn.supermvp.R;
-import com.shoneworn.supermvp.common.Bean.MySection;
+import com.shoneworn.supermvp.common.bean.MySection;
 
 
 import java.util.List;

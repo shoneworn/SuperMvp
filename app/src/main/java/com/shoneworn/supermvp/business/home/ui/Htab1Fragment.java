@@ -2,14 +2,13 @@ package com.shoneworn.supermvp.business.home.ui;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
 import com.shoneworn.libcommon.base_recyclerview_adapter_helper.decoration.SpacesItemDecoration;
 import com.shoneworn.libcore.infrastruction.base.PresenterTyper;
 import com.shoneworn.supermvp.R;
 import com.shoneworn.supermvp.business.home.presenter.Htab1Presenter;
 import com.shoneworn.supermvp.business.home.adapter.HtabAdapter;
-import com.shoneworn.supermvp.common.Bean.MySection;
+import com.shoneworn.supermvp.common.bean.MySection;
 import com.shoneworn.supermvp.common.base.fragment.UILazyFragment;
 import com.shoneworn.supermvp.uitls.DensityUtil;
 

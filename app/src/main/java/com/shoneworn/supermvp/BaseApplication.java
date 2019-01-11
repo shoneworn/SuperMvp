@@ -2,6 +2,8 @@ package com.shoneworn.supermvp;
 
 import android.app.Application;
 
+import com.shoneworn.libcore.net.okhttputils.OkHttpUtils;
+
 import cn.bingoogolapple.swipebacklayout.BGASwipeBackHelper;
 
 /**
@@ -14,5 +16,6 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         BGASwipeBackHelper.init(this, null);
+        OkHttpUtils.getInstance().init(this);
     }
 }

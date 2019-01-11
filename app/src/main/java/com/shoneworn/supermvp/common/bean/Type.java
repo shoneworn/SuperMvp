@@ -1,10 +1,8 @@
-package com.shoneworn.supermvp.common.Bean;
+package com.shoneworn.supermvp.common.bean;
 
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.security.PublicKey;
 
 /**
  * Created by chenxiangxiang on 2018/12/17.
