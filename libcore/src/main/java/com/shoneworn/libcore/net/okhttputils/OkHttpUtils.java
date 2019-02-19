@@ -80,27 +80,27 @@ public class OkHttpUtils {
         this.okHttpClientBuilder.readTimeout(60000L, TimeUnit.MILLISECONDS);
         this.okHttpClientBuilder.writeTimeout(60000L, TimeUnit.MILLISECONDS);
         this.okHttpClientBuilder.connectTimeout(60000L, TimeUnit.MILLISECONDS);
-        if(this.sslParams == null) {
+        if (this.sslParams == null) {
             this.sslParams = HttpsUtils.getSslSocketFactory();
         }
 
-        if(this.hostnameVerifier == null) {
+        if (this.hostnameVerifier == null) {
             this.hostnameVerifier = HttpsUtils.UnSafeHostnameVerifier;
         }
 
-        if(!Utils.isEmpty(this.sslParams)) {
+        if (!Utils.isEmpty(this.sslParams)) {
             this.okHttpClientBuilder.sslSocketFactory(this.sslParams.sSLSocketFactory, this.sslParams.trustManager);
         }
 
-        if(!Utils.isEmpty(this.hostnameVerifier)) {
+        if (!Utils.isEmpty(this.hostnameVerifier)) {
             this.okHttpClientBuilder.hostnameVerifier(this.hostnameVerifier);
         }
 
-        if(!Utils.isEmpty(this.proxy)) {
+        if (!Utils.isEmpty(this.proxy)) {
             this.okHttpClientBuilder.proxy(this.proxy);
         }
 
-        if(!Utils.isEmpty(this.proxySelector)) {
+        if (!Utils.isEmpty(this.proxySelector)) {
             this.okHttpClientBuilder.proxySelector(this.proxySelector);
         }
 
@@ -113,7 +113,7 @@ public class OkHttpUtils {
     }
 
     private void checkOkHttpClientBuilderNotNull() {
-        if(this.okHttpClientBuilder == null) {
+        if (this.okHttpClientBuilder == null) {
             this.okHttpClientBuilder = new Builder();
         }
 
@@ -166,7 +166,7 @@ public class OkHttpUtils {
     }
 
     public WeakHandler getDelivery() {
-        if(this.mDelivery == null) {
+        if (this.mDelivery == null) {
             this.mDelivery = new WeakHandler(Looper.getMainLooper());
         }
 
@@ -183,7 +183,7 @@ public class OkHttpUtils {
         HttpUtils.checkNotNull(okHttpClientBuilder, "okHttpClientBuilder == null");
         this.okHttpClientBuilder = okHttpClientBuilder;
         this.okHttpClient = okHttpClient;
-        this.cookieJar = (CookieJarImpl)okHttpClient.cookieJar();
+        this.cookieJar = (CookieJarImpl) okHttpClient.cookieJar();
         return this;
     }
 
@@ -228,19 +228,19 @@ public class OkHttpUtils {
     }
 
     public OkHttpUtils setCertificates(InputStream... certificates) {
-        this.setCertificates((InputStream)null, (String)null, (InputStream[])certificates);
+        this.setCertificates((InputStream) null, (String) null, (InputStream[]) certificates);
         return this;
     }
 
     public OkHttpUtils setCertificates(X509TrustManager trustManager) {
-        this.setCertificates((InputStream)null, (String)null, (X509TrustManager)trustManager);
+        this.setCertificates((InputStream) null, (String) null, (X509TrustManager) trustManager);
         return this;
     }
 
     public OkHttpUtils setCertificates(InputStream bksFile, String password, InputStream... certificates) {
         this.sslParams = HttpsUtils.getSslSocketFactory(bksFile, password, certificates);
         this.checkOkHttpClientBuilderNotNull();
-        if(!Utils.isEmpty(this.sslParams)) {
+        if (!Utils.isEmpty(this.sslParams)) {
             this.okHttpClientBuilder.sslSocketFactory(this.sslParams.sSLSocketFactory, this.sslParams.trustManager);
         }
 
@@ -251,7 +251,7 @@ public class OkHttpUtils {
     public OkHttpUtils setCertificates(InputStream bksFile, String password, X509TrustManager trustManager) {
         this.sslParams = HttpsUtils.getSslSocketFactory(bksFile, password, trustManager);
         this.checkOkHttpClientBuilderNotNull();
-        if(!Utils.isEmpty(this.sslParams)) {
+        if (!Utils.isEmpty(this.sslParams)) {
             this.okHttpClientBuilder.sslSocketFactory(this.sslParams.sSLSocketFactory, this.sslParams.trustManager);
         }
 
@@ -278,7 +278,7 @@ public class OkHttpUtils {
     public OkHttpUtils setProxySelector(@Nullable ProxySelector proxySelector) {
         this.checkOkHttpClientBuilderNotNull();
         this.proxySelector = proxySelector;
-        if(!Utils.isEmpty(this.okHttpClientBuilder)) {
+        if (!Utils.isEmpty(this.okHttpClientBuilder)) {
             this.okHttpClientBuilder.proxySelector(proxySelector);
         }
 
@@ -289,7 +289,7 @@ public class OkHttpUtils {
     public OkHttpUtils setProxy(@Nullable Proxy proxy) {
         this.checkOkHttpClientBuilderNotNull();
         this.proxy = proxy;
-        if(!Utils.isEmpty(this.okHttpClientBuilder)) {
+        if (!Utils.isEmpty(this.okHttpClientBuilder)) {
             this.okHttpClientBuilder.proxy(proxy);
         }
 
@@ -327,7 +327,7 @@ public class OkHttpUtils {
     }
 
     public OkHttpUtils setRetryCount(int retryCount) {
-        if(retryCount < 0) {
+        if (retryCount < 0) {
             throw new IllegalArgumentException("retryCount must > 0");
         } else {
             this.mRetryCount = retryCount;
@@ -349,7 +349,7 @@ public class OkHttpUtils {
     }
 
     public OkHttpUtils setCacheTime(long cacheTime) {
-        if(cacheTime <= -1L) {
+        if (cacheTime <= -1L) {
             cacheTime = -1L;
         }
 
@@ -366,7 +366,7 @@ public class OkHttpUtils {
     }
 
     public OkHttpUtils addCommonParams(HttpParams commonParams) {
-        if(this.mCommonParams == null) {
+        if (this.mCommonParams == null) {
             this.mCommonParams = new HttpParams();
         }
 
@@ -375,7 +375,7 @@ public class OkHttpUtils {
     }
 
     public OkHttpUtils clearCommonParams() {
-        if(this.mCommonParams != null) {
+        if (this.mCommonParams != null) {
             this.mCommonParams.clear();
         }
 
@@ -387,7 +387,7 @@ public class OkHttpUtils {
     }
 
     public OkHttpUtils addCommonHeaders(HttpHeaders commonHeaders) {
-        if(this.mCommonHeaders == null) {
+        if (this.mCommonHeaders == null) {
             this.mCommonHeaders = new HttpHeaders();
         }
 
@@ -396,7 +396,7 @@ public class OkHttpUtils {
     }
 
     public OkHttpUtils clearCommonHeaders() {
-        if(this.mCommonHeaders != null) {
+        if (this.mCommonHeaders != null) {
             this.mCommonHeaders.clear();
         }
 
@@ -404,22 +404,22 @@ public class OkHttpUtils {
     }
 
     public void cancelTag(Object tag) {
-        if(tag != null) {
+        if (tag != null) {
             Iterator var2 = this.getOkHttpClient().dispatcher().queuedCalls().iterator();
 
             Call call;
-            while(var2.hasNext()) {
-                call = (Call)var2.next();
-                if(tag.equals(call.request().tag())) {
+            while (var2.hasNext()) {
+                call = (Call) var2.next();
+                if (tag.equals(call.request().tag())) {
                     call.cancel();
                 }
             }
 
             var2 = this.getOkHttpClient().dispatcher().runningCalls().iterator();
 
-            while(var2.hasNext()) {
-                call = (Call)var2.next();
-                if(tag.equals(call.request().tag())) {
+            while (var2.hasNext()) {
+                call = (Call) var2.next();
+                if (tag.equals(call.request().tag())) {
                     call.cancel();
                 }
             }
@@ -428,22 +428,22 @@ public class OkHttpUtils {
     }
 
     public static void cancelTag(OkHttpClient client, Object tag) {
-        if(client != null && tag != null) {
+        if (client != null && tag != null) {
             Iterator var2 = client.dispatcher().queuedCalls().iterator();
 
             Call call;
-            while(var2.hasNext()) {
-                call = (Call)var2.next();
-                if(tag.equals(call.request().tag())) {
+            while (var2.hasNext()) {
+                call = (Call) var2.next();
+                if (tag.equals(call.request().tag())) {
                     call.cancel();
                 }
             }
 
             var2 = client.dispatcher().runningCalls().iterator();
 
-            while(var2.hasNext()) {
-                call = (Call)var2.next();
-                if(tag.equals(call.request().tag())) {
+            while (var2.hasNext()) {
+                call = (Call) var2.next();
+                if (tag.equals(call.request().tag())) {
                     call.cancel();
                 }
             }
@@ -455,34 +455,34 @@ public class OkHttpUtils {
         Iterator var1 = this.getOkHttpClient().dispatcher().queuedCalls().iterator();
 
         Call call;
-        while(var1.hasNext()) {
-            call = (Call)var1.next();
+        while (var1.hasNext()) {
+            call = (Call) var1.next();
             call.cancel();
         }
 
         var1 = this.getOkHttpClient().dispatcher().runningCalls().iterator();
 
-        while(var1.hasNext()) {
-            call = (Call)var1.next();
+        while (var1.hasNext()) {
+            call = (Call) var1.next();
             call.cancel();
         }
 
     }
 
     public static void cancelAll(OkHttpClient client) {
-        if(client != null) {
+        if (client != null) {
             Iterator var1 = client.dispatcher().queuedCalls().iterator();
 
             Call call;
-            while(var1.hasNext()) {
-                call = (Call)var1.next();
+            while (var1.hasNext()) {
+                call = (Call) var1.next();
                 call.cancel();
             }
 
             var1 = client.dispatcher().runningCalls().iterator();
 
-            while(var1.hasNext()) {
-                call = (Call)var1.next();
+            while (var1.hasNext()) {
+                call = (Call) var1.next();
                 call.cancel();
             }
 

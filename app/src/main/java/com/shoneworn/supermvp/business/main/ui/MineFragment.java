@@ -1,5 +1,8 @@
 package com.shoneworn.supermvp.business.main.ui;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.shoneworn.libcore.infrastruction.base.PresenterTyper;
@@ -41,7 +44,16 @@ public class MineFragment extends UILazyFragment<MinePresenter> {
 
     @Override
     protected void setViewListener() {
-
+        ivHead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri=Uri.parse("app://test");
+                Intent intent=new Intent();
+                intent.setAction("com.cxx.shone");
+                intent.setData(uri);
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     @Override

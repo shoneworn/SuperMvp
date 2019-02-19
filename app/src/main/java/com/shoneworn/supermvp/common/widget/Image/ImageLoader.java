@@ -21,6 +21,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.signature.StringSignature;
 import com.shoneworn.libcore.utils.MD5Coder;
 import com.shoneworn.libcore.utils.Utils;
 import com.shoneworn.supermvp.uitls.LogUtils;
@@ -850,6 +851,31 @@ public class ImageLoader {
 
     private static boolean isGlideEnable(Context context) {
         return !Utils.isEmpty(context);
+    }
+
+    private static String signatureInOrder = System.currentTimeMillis() + "";
+
+    public static void initGlideSignature(String obj) {
+        signatureInOrder = obj;
+    }
+
+    /**
+     * 通过添加签名的方式更新图片缓存
+     * 注意：Glide 版本若更新，StringSignature将被废弃，替换成signature(new ObjectKey(object))
+     *
+     * @param context
+     * @param imageView
+     * @param url
+     */
+    public static void loadImageWithSignature(Context context, ImageView imageView, String url) {
+        if (!isGlideEnable(context, imageView)) {
+            return;
+        }
+        Glide.with(context.getApplicationContext())
+                .load(url)
+                .signature(new StringSignature(signatureInOrder))
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(imageView);
     }
 
 }
