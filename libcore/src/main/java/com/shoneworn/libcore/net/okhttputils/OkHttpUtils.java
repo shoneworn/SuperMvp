@@ -116,7 +116,6 @@ public class OkHttpUtils {
         if (this.okHttpClientBuilder == null) {
             this.okHttpClientBuilder = new Builder();
         }
-
     }
 
     public static OkHttpUtils getInstance() {
