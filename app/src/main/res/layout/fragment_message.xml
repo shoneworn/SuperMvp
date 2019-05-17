@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_centerInParent="true"
-        android:text="Fragment3"
+    <LinearLayout
+        android:id="@+id/ll_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#999999"
         android:gravity="center"
-       />
+        android:orientation="horizontal"
+        android:visibility="gone" />
 
-</RelativeLayout>
+    <com.shoneworn.supermvp.common.widget.DanceNumberView
+        android:id="@+id/dnView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#666666"
+        app:text="33891856"
+        app:textColor="#ffffff"
+        app:textPadding="2dp"
+        app:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="重试"/>
+
+
+</LinearLayout>

@@ -22,7 +22,6 @@ public class BeamActivity<PresenterType extends BeamPresenter> extends AppCompat
         super.onCreate(savedInstanceState);
         if (presetner == null) {
             presetner = (PresenterType) AnnotationUtil.getAnnotationValue(this.getClass());
-            ;
         }
         if (presetner != null) {
             presetner.onCreate(this, savedInstanceState);
